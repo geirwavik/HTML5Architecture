@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="no">
+	<head>
+		<title>HTML5 ROOTS2011</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="images/miles.ico" />
+		<link type="text/css" rel="stylesheet" href="main.css" />
+		<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="slides.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		
+		<div id="tableOfContents">
+			<h2>Innholdsfortegnelse</h2>
+		<ul>
+			<li>HTML5 - Fra et arkitekturperspektiv</li>
+			<li>Fra dokumentstruktur til applikasjonsstruktur</li>
+			<li>Når kan man bruke HTML5?</li>
+			<li>HTML5 elementer og JavaScript API</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Kompetanse</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Kodebase</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - DOM</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Anonyme funksjoner</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Ytelse</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Feilsøking</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Testing</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Progressive enhanchement</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Avhengigheter</li>
+			<li>Arkitektoniske dilemmaer i HTML5 - Backend</li>
+		</ul>
+		</div>
+			
+		<div id="slide1" class="slide introType">
+			<img id="logo" src="images/miles.png" />
+			<div class="credits">
+				<h1>HTML5 - Fra et arkitekturperspektiv</h1>
+				<p>Av <a href="http://www.miles.no/Ansatte/Oslo/Geir.689.cms">Geir Wavik</a> Mai 2011</p>
+			</div>
+
+		</div>
+		
+		<div id="slide2" class="slide fromDocToAppSlide">
+			<div class="paddingContainer">
+				<h1>Fra dokumentstruktur til applikasjonsstruktur</h1>
+
+				<h2>HTML</h2>
+				<p>
+					Semantikk for å beskrive oppbyggingen av et dokumentet
+				</p>
+				
+				<div class="aside">
+					<h2>HTML5</h2>
+					<p>
+						Semantikk for å beskrive oppbyggingen av en applikasjon
+					</p>
+				
+					<img src="images/we-can-do-html5.jpg">
+				</div>
+			</div>
+		</div>	
+		
+		<div id="slide3" class="slide">
+			<div class="paddingContainer">
+				<h1>Når kan man bruke HTML5?</h1>
+				<h2>Fremdriftsplan</h2>
+				<ul>
+					<li><p>Work on HTML 5 started in late 2003</p></li>
+					<li><p>First W3C Working Draft in October 2007</p></li>
+					<li><p>Last Call Working Draft in October 2009</p></li>
+					<li><p>Call for contributions for the test suite in 2011</p></li>
+					<li><p><strong>Candidate Recommendation in 2012</strong></p></li>
+					<li><p><strong>First draft of test suite in 2012</strong></p></li>
+					<li><p>Second draft of test suite in 2015</p></li>
+					<li><p>Final version of test suite in 2019</p></li>
+					<li><p>Reissued Last Call Working Draft in 2020</p></li>
+					<li><p>Proposed Recommendation in 2022</p></li>
+				</ul>
+				<p>HTML5 erstatter spesifikasjonene <strong>HTML 4, DOM2 HTML and XHTML1</strong></p>
+				
+				<p>
+					<img src="images/html5-pic.jpg">
+				</p>
+			</div>
+		</div>
+		
+		<div id="slide4" class="slide twoColumnType">
+			<div class="paddingContainer">
+				<h1>HTML5 elementer og JavaScript API</h1>
+				<div class="column">
+					<h2>Elementer og attributter</h2>
+					<ul>
+						<li><p>Struktur elementer (header, nav, article, aside, section, footer, figure)</p></li>
+						<li><p>Aria (tilgjengelighet)</p></li>
+						<li><p>Media tagger (Audio, video)</p></li>
+						<li><p>Audio</p></li>
+						<li><p>Microdata</p></li>
+						<li><p>contenteditable</p></li>
+						<li><p>Form elementer og attributter (number, date, range, tel, etc...)</p></li>
+						<li><p>Canvas</p></li>
+						<li><p>SVG</p></li>
+						<li><p>++...</p></li>
+					</ul>
+				</div>
+				
+				<div class="column">
+					<h2>JavaScript API'er</h2>	
+					<ul>
+						<li><p>Video controls API</p></li>
+						<li><p>Audio controls API</p></lI>
+						<li><p>Drag and drop API</p></li>
+						<li><p>Websockets API</p></li>
+						<li><p>Server side events</p></li>
+						<li><p>Notifications API</p></li>
+						<li><p>Validering</p></li>
+						<li><p>Geolocation API</p></li>
+						<li><p>web storage API</p></li>
+						<li><p>Offline storage API</p></li>
+						<li><p>Application cache API</p></li>
+						<li><p>File system API</p></li>
+						<li><p>Canvas 2D API</p></li>
+						<li><p>Canvas 3D API (WebGL)</p></li>
+						<li><p>SVG (scalable vector graphics)</p></li>
+						<li><p>Web Workers API</p></li>
+						<li><p>History API</p></li>
+						<li><p>++....</p></li>
+					</ul>
+				</div>
+				<p><strong>+ at for en rik brukeropplevelse får man staten i klienten samt påfølgende struktur</strong></p>
+			</div>
+		</div>
+		
+		<div id="slide5" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Kompetanse</h1>
+				
+				<h2>Kompetanse</h2>
+				<ul>
+					<li>
+						<p>Semantikk kompetanse (HTML).</p>
+						
+						<ul>
+							<li><p>Riktig bruk av taggene vil redusere kodebasen for HTML</p></li>
+						</ul>
+						
+					</li>
+					<li>
+						<p>JavaScript kompetanse.</p>
+						<ul>
+							<li><p>Lær deg språket, funksjonelt scope versus block scope, prototype basert, hoisting</p></li>
+						</ul>
+					</li>
+					<li>
+						<p>Arkitektur kompetanse.</p>
+						<ul>
+							<li><p>Strukturering av kode, statefulle klienter</p></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="slide6" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Kodebase</h1>
+			
+				<h2>Større kodebase på klienten</h2>
+				<ul>
+					<li>
+						<p>Mer logikk på klientsiden.</p>
+						
+						<ul>
+							<li>
+								<p>Innkappsling av variable, for ikke å forurense det globale scopet</p>
+								<code>
+									(function() { ... })();
+								</code>
+							</li>
+							<li>
+								<p>Bruk kjente programmeringsmønstre som vil gjøre koden mer oversiktelig etterhvert som koden vokser (ModulePattern, MVC el.)</p>
+							</li>
+							<li>
+								<p>Det finnes bibliotek for struktur f.eks Sammy.js, Backbone.js, JavaScriptMVC, EXT js</p>
+							</li>
+							<li><p>Mer kode gir rom for flere feil, test koden</p></li>
+							<li><p>Dokumentasjon generator for JavaScript f.eks jsdoc-toolkit</p></li>
+							<li><p>Dedikert rolle som klientsidearkitekt</p></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="slide7" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - DOM</h1>
+				
+				<h2>DOM</h2>
+				<ul>
+					<li><p>DOM strukturen er ikke lik i alle nettlesere</p></li>
+					<li>
+						<p>
+							HTML5 definerer ikke bare et sett med parsing regler for valid kode, men også for <strong>ugyldig kode</strong> i motsetning til hva tidligere versjoner av HTML gjorde.
+						</p>
+						<code>
+							&lt;b&gt;&lt;i&gt;Yo!&lt;/b&gt;&lt;/i&gt;
+						</code>
+						<p>Explorer9 og Safari5 gir dette resultatet</p>
+						<code>
+							&lt;b&gt;&lt;i&gt;Yo!&lt;/i&gt;&lt;/b&gt;&lt;i&gt;&lt;/i&gt;<br />
+						</code>
+						<p>Opera, Firefox og Chrome serverer denne DOM'en</p>
+						<code>
+							&lt;b&gt;&lt;i&gt;Yo!&lt;/i&gt;&lt;/b&gt;
+						</code>
+						
+						<ul>
+							<li>
+								<p>Skill ut hacks eller nettleser avhengigheter i egne filer</p>
+							</li>
+							<li>
+								<p>Bruk så få DOM kall som mulig, hent ut ønskede elementer i variable og manipuler disse</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+			
+		<div id="slide8" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Anonyme funksjoner (lambda)</h1>
+				
+				<h2>Anonyme funksjoner/eventer</h2>
+				
+				<p>HTML5 sine funksjonaliteter trigges ofte av eventer som er anonyme funksjoner</p>
+				<ul>
+					<li>
+						<p>Hvor trigges logikken?</p>
+						
+						<ul>
+							<li><p>Skill ut eventer i egen fil ved oppbygging av egen struktur</p></li>
+							<li><p>Kode som starter eksekvering bør være enkelt å finne og bør struktureres sammen</p></li>
+							<li><p>Bruk logiske filnavn slik at man skjønner hvor logikken trigges</p></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="slide9" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Ytelse</h1>	
+				<h2>Ytelse</h2>
+				
+				<ul>
+					<li><p>God struktur - YUI Profiler for profilering av koden</p></li>
+					<li><p>Eksterne bibliotek - behind the scenes</p></li>
+					<li><p>Reduser antall DOM kall</p></li>
+					<li><p>Reduser antall requester med å bundle css og js under bygging</p></li>
+					<li><p>Reduser antall KB, minify js og css under bygging</p></li>
+					<li><p>Aldri inline js</p></li>
+					<li><p>Inkluder JavaScript så nærme avsluttingen på <strong>body</strong> som mulig</p></li>
+					<li><p>Forhindre event bubbling</p></li>
+					<li><p>CSS/JS på contentfarms eller eksterne bibliotek fra CDN(content delivery network)</p></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="slide10" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Feilsøking</h1>	
+				
+				<h2>Feilsøking</h2>
+				
+				<ul>
+					<li><p>Valider HTML koden for å få lik DOM struktur</p></li>
+					<li><p>Skriv unit tester</p></li>
+					<li><p>Console.log er ikke støttet av alle nettlesere</p></li>
+					<li><p>Firebug, Chrome developer tools og Opera DragonFly er gode hjelpeverktøy</p></li>
+					<li><p>Bruk breakpoints og stepping i overnevnte verktøy</p></li>
+					<li><p>Catch all block, som logger alle feil og sender til server</p></li>
+					<li><p>Logg feil til internt objekt med nettleser navn, versjon, kodemodul etc</p></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="slide11" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Testing</h1>
+
+				<h2>Testing</h2>
+
+				<ul>
+					<li><p>Forvalt klientsidekoden din på samme måte som backendkoden</p></li>
+					<li><p>Finnes utallige testrammeverk, både x-unit og BDD rammeverk (Jasmine, Sinon, QUnit, YUI Test)</p></li>
+					<li>
+						<p>Få så gode tilbakemeldinger som mulig, så ofte som mulig</p>
+						<ul>
+							<li><p>Koble til bygg og CI system</p></li>
+						</ul>
+					</li>
+					<li><p>JsTestDriver eller den kommende Buster.JS for å drive testene.</p>
+					<li><p>Bruk TDD/BDD prinsipper for å få god struktur på koden</p></li>
+				</ul>
+
+			</div>
+		</div>
+		
+		<div id="slide12" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Progressive enhanchement</h1>
+				<h2>Progressive forbedringer</h2>
+					
+				<ul>
+					<li><p>Tilby en enkel løsning og berik den med funksjonalitet som støttes av klienten</p></li>
+					<li>
+						<p>Tilby alle lik støtte?</p>
+						<ul>
+							<li><p>Økonomisk forsvarlig?</p></li>
+							<li><p>Nok brukere?</p></li>
+							<li><p>Statlige krav?</p></li>
+							<li><p>Forsvarlig forvaltning</p></li>
+							<li><p>Har man husket på å estimere alternative løsninger?</p></li>
+						</ul>
+					</li>
+					<li>
+						<p>Sjekk selv om ønsket funksjonalitet støttes</p>
+						<code>
+							function supports_geolocation() {<br />
+							 &nbsp;&nbsp; return !!navigator.geolocation;<br />
+							}
+						</code>
+					</li>
+					<li><p>Brukes mange funksjonaliteter fra HTML5 kan det være lurt å bruke bibliotek som ModerNizr og YepNope.js</p></li>
+					<li>
+						<p>Fallback løsninger</p>
+						<ul>
+							<li><p>Google Gears for offline</p></li>
+							<li><p>Flash websockets</p></li>
+							<li><p>Comet</p></li>
+							<li><p>Skill ut fallback løsninger for enkelt å kunne koble disse ut</p></li>
+						</ul>
+					</li>
+					<li><p>Tilgjengelighet- Aria krav</p></li>
+				</ul>
+		
+			</div>
+		</div>
+		
+
+		
+		<div id="slide13" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Avhengigheter</h1>
+				
+				<h2>Avhengigheter</h2>
+				<ul>
+					<li><p>Bruk bibliotek bare når du må</p></li>
+					<li>
+						<p>Reduser avhengigheter til plugins</p>
+						<ul>
+							<li><p>Plugins til bibliotek skaper utrivelige avhengigheter</p></li>
+						</ul>
+					</li>
+					<li><p>Skill ut ikke standard kode i egne filer for enkelt å fjerne avhengigheten senere</p></li>
+					<li><p>Velg avhengigheter som aktivt blir forvaltet</p></li>
+					<li>
+						<p>Forstå og les koden til avhengigheten din</p>
+						<ul>
+							<li><p>prototype.js overstyrer f.eks native array metoder</p></li>
+							<li><p>Plugins kan overstyre native js og bibliotek metoder</p></li>
+						</ul>
+					</li>
+				</ul>
+					
+			</div>
+		</div>
+		
+		<div id="slide14" class="slide">
+			<div class="paddingContainer">
+				<h1>Arkitektoniske dilemmaer i HTML5 - Backend</h1>
+				
+				<h2>Backend</h2>
+				<ul>
+					<li><p>Valider input data backend</p></li>
+					<li><p>La staten styres av klienten</p></li>
+					<li><p>REST er kult</p></li>
+					<li><p>Repository pattern for enkel statehåndtering hvis ønskelig</p></li>
+				</ul>
+				
+			</div>
+		</div>
+			
+		<div id="slide15" class="slide endType">
+			<div class="paddingContainer">
+				<h1>Takk for meg</h1>
+				
+				<div class="brandingContainer">
+					<a href="http://www.miles.no/Ansatte/Oslo/Geir.689.cms"><img src="images/geir.png" alt="Geir" /></a>
+					
+					<img src="images/milesbig.jpg" alt="Miles logo" />
+				</div>
+				
+				<div class="textContainer">
+					<h2>Geir Wavik</h2>
+					<p>Oslo: Utvikler</p>
+					<p>
+						Geir har en master i information technology fra Swinburne University i 2003. 
+						Han har sin spisskompetanse på utvikling av brukergrensesnitt med fokus på webstandarder, brukervennlighet og tilgjengelighet. 
+						Har blant annet vært en sentral ressurs i implementeringen av løsninger som har vunnet både Gulltaggen og Tilgjengelighetsprisen. 
+						Før Geir startet i Miles, arbeidet han som seniorkonsulent i Bekk.
+					</p>
+					<p>
+						Geir en ekte bygutt som har utvandret til Oslos utkantstrøk. Når han ikke pusser opp trives han best med sjø og sol. Som nybakt pappa håper han sønnen snart er gammel nok til å være med på "Enga"-kamp.
+					</p>
+					
+					<a href="http://twitter.com/geirwavik">http://twitter.com/geirwavik</a>
+					
+				    <img src="images/greatplace.png" alt="Great place to work logo">
+				</div>
+							
+			</div>
+		</div>
+	</body>
+</html>
